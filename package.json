@@ -11,5 +11,8 @@
     "url": "d.srupt"
   },
   "author": "d.craft team",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
 }
