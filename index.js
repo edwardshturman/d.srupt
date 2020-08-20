@@ -241,7 +241,7 @@ client.on('message', async message => {
         return undefined
     }
 
-});
+}).catch(console.error);
 
 function play(guild, song) {
     const serverQueue = queue.get(guild.id);
