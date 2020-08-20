@@ -2,6 +2,7 @@ module.exports = {
     name: 'play',
     description: "The play command.",
     execute(message, args) {
+        /* **************************************************
         const ytdl = require('ytdl-core');
         const servers = {};
         function play(connection, message) {
@@ -49,4 +50,85 @@ module.exports = {
         })
 
     }
+         ************************************************** */
+
+        const {Client, Util} = require('discord.js');
+        const voiceChannel = message.member.voice.channel;
+
+        // Checks to see if user is connected to a voice channel.
+        if (!voiceChannel) return message.channel.send(':musical_note: `>>` You need to be connected to a voice channel to play!');
+
+        // Checks for bot permissions to connect and play music (speak).
+        const permissions = voiceChannel.permissionsFor(message.client.user);
+        if (!permissions.has('CONNECT')) return message.channel.send(':musical_note: `>>` I don\'t have permissions to connect to your voice channel!');
+        if (!permissions.has('SPEAK')) return message.channel.send('I don\'t have permissions to play music (speak) in your voice channel!');
+
+        /* ****************************** YouTube search
+        try {
+            const video = await youtube.getVideoByID(url);
+        } catch {
+            try {
+                const videos = await youtube.searchVideos(searchString, 1);
+                var video = await youtube.getVideoByID(videos[0].id);
+            } catch {
+                return message.channel.send(':musical_note: `>>` Could not find a song by that name!');
+
+            }
+        }
+
+         YouTube search ****************************** */
+
+        const songInfo = await ytdl.getInfo(args[0]);
+        const song = {
+            title: Util.escapeMarkdown(songInfo.videoDetails.title),
+            url: songInfo.videoDetails.video_url,
+            author: songInfo.videoDetails.author
+
+            /* ****************************** YouTube search
+            id: video.id,
+            title: Util.escapeMarkdown(video.title),
+            url: `https://www.youtube.com/watch?v=${video.id}`,
+            author: video.channelTitle,
+            authorThumbnail: video.channel.thumbnails
+            YouTube search ****************************** */
+        };
+
+        if (!serverQueue) {
+            const queueConstruct = {
+                textChannel: message.channel,
+                voiceChannel: voiceChannel,
+                connection: null,
+                songs: [],
+                volume: 5,
+                playing: true,
+                lastRequest: message.channel.lastMessage
+            };
+
+            queue.set(message.guild.id, queueConstruct);
+
+            queueConstruct.songs.push(song);
+
+            try {
+                message.react('👍');
+                const connection = await voiceChannel.join();
+                queueConstruct.connection = connection;
+                queueConstruct.lastRequest = message.channel.lastMessage;
+                await connection.voice.setSelfDeaf(true);
+                play(message.guild, queueConstruct.songs[0]);
+            } catch (error) {
+                console.log(`There was an error connecting to the voice channel: ${error}`);
+                queue.delete(message.guild.id);
+            }
+        }
+
+        else {
+            serverQueue.songs.push(song);
+            message.react('👍');
+            return message.channel.send(`:musical_note: \`>>\` **${song.title}** has been added to the queue!`)
+        }
+
+        return undefined;
+
+    }
+
 };
