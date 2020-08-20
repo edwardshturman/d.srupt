@@ -1,7 +1,7 @@
 module.exports = {
     name: 'play',
     description: "The play command.",
-    execute(message, args) {
+    async execute(message, args) {
         /* **************************************************
         const ytdl = require('ytdl-core');
         const servers = {};
@@ -119,9 +119,7 @@ module.exports = {
                 console.log(`There was an error connecting to the voice channel: ${error}`);
                 queue.delete(message.guild.id);
             }
-        }
-
-        else {
+        } else {
             serverQueue.songs.push(song);
             message.react('👍');
             return message.channel.send(`:musical_note: \`>>\` **${song.title}** has been added to the queue!`)
