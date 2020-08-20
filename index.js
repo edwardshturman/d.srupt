@@ -1,5 +1,6 @@
 // dependencies
 const Discord = require('discord.js');
+const require('dotenv').config();
 const fs = require('fs');
 const queue = new Map();
 const ytdl = require('ytdl-core');
@@ -274,4 +275,4 @@ function play(guild, song) {
 }
 
 // Login to the bot
-client.login('NzQyNjU2ODE2OTAyNzAxMTE3.XzJTDw.djbyJLeQqHHoeRJoEGg6ASm2vW4');
+client.login(process.env.TOKEN);

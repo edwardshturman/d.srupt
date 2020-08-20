@@ -4,16 +4,23 @@
   "description": "The d.srupt Discord bot.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
-    "url": "d.srupt"
+    "url": "git+https://github.com/edwardshturman/d.srupt.git"
   },
   "author": "d.craft team",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwardshturman/d.srupt/issues"
+  },
+  "homepage": "https://github.com/edwardshturman/d.srupt",
   "dependencies": {
     "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "request": "2.88.2",
     "ffmpeg-static": "^4.2.6",
     "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
