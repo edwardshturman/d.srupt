@@ -243,7 +243,36 @@ client.on('message', async message => {
 
 });
 
+function play(guild, song) {
+    const serverQueue = queue.get(guild.id);
 
+    if (!song) {
+        serverQueue.voiceChannel.leave();
+        queue.delete(guild.id);
+        return
+    }
+
+    const dispatcher = serverQueue.connection.play(ytdl(song.url, {filter: "audioonly"}))
+        .on('finish', () => {
+            serverQueue.songs.shift();
+            play(guild, serverQueue.songs[0]);
+        })
+        .on('error', error => {
+            console.log(error);
+        });
+
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+
+    const nowPlayingEmbed = new Discord.MessageEmbed()
+        .setColor('#ff3300')
+        .setTitle(`Now Playing: ${song.title}`)
+        .setAuthor(`${song.author.name}`, `${song.author.avatar}`)
+        //.setDescription(`**${song.title}**`)
+        .setFooter(`Requested by: ${serverQueue.lastRequest.member.displayName}`, `${serverQueue.lastRequest.author.avatarURL()}`);
+
+    serverQueue.textChannel.send(nowPlayingEmbed);
+
+};
 
 // Login to the bot
 client.login(process.env.TOKEN);
