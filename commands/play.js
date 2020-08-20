@@ -1,3 +1,8 @@
+const {Client, Util} = require('discord.js');
+const Discord = require('discord.js');
+const ytdl = require('ytdl-core');
+const queue = new Map();
+
 module.exports = {
     name: 'play',
     description: "The play command.",
@@ -52,8 +57,8 @@ module.exports = {
     }
          ************************************************** */
 
-        const {Client, Util} = require('discord.js');
-        const ytdl = require('ytdl-core');
+
+        const serverQueue = queue.get(message.guild.id);
         const voiceChannel = message.member.voice.channel;
 
         // Checks to see if user is connected to a voice channel.
@@ -127,6 +132,37 @@ module.exports = {
         }
 
         return undefined;
+
+        function play(guild, song) {
+            const serverQueue = queue.get(guild.id);
+
+            if (!song) {
+                serverQueue.voiceChannel.leave();
+                queue.delete(guild.id);
+                return
+            }
+
+            const dispatcher = serverQueue.connection.play(ytdl(song.url, {filter: "audioonly"}))
+                .on('finish', () => {
+                    serverQueue.songs.shift();
+                    play(guild, serverQueue.songs[0]);
+                })
+                .on('error', error => {
+                    console.log(error);
+                });
+
+            dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+
+            const nowPlayingEmbed = new Discord.MessageEmbed()
+                .setColor('#ff3300')
+                .setTitle(`Now Playing: ${song.title}`)
+                .setAuthor(`${song.author.name}`, `${song.author.avatar}`)
+                //.setDescription(`**${song.title}**`)
+                .setFooter(`Requested by: ${serverQueue.lastRequest.member.displayName}`, `${serverQueue.lastRequest.author.avatarURL()}`);
+
+            serverQueue.textChannel.send(nowPlayingEmbed);
+
+        }
 
     }
 
