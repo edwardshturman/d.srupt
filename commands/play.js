@@ -6,8 +6,12 @@ const queue = new Map();
 module.exports = {
     name: 'play',
     description: "The play command.",
+<<<<<<< HEAD
     async execute(message, args) {
         /* **************************************************
+=======
+    execute(message, args) {
+>>>>>>> parent of e0cd312... Testing separate command files again with play.js
         const ytdl = require('ytdl-core');
         const servers = {};
         function play(connection, message) {
@@ -55,6 +59,7 @@ module.exports = {
         })
 
     }
+<<<<<<< HEAD
          ************************************************** */
 
 
@@ -166,4 +171,6 @@ module.exports = {
 
     }
 
+=======
+>>>>>>> parent of e0cd312... Testing separate command files again with play.js
 };
