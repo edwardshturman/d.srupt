@@ -53,6 +53,7 @@ module.exports = {
          ************************************************** */
 
         const {Client, Util} = require('discord.js');
+        const ytdl = require('ytdl-core');
         const voiceChannel = message.member.voice.channel;
 
         // Checks to see if user is connected to a voice channel.
