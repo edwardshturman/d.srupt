@@ -1,6 +1,6 @@
-// dependencies
+// Dependencies
 const Discord = require('discord.js');
-const require('dotenv').config();
+require('dotenv').config();
 const fs = require('fs');
 const queue = new Map();
 const ytdl = require('ytdl-core');
@@ -8,16 +8,16 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube('AIzaSyA_hyjvOfEU9u5PvhO1rUHF7d-PQdAkG5A');
 
 
-// launch instance of Discord
+// Launch instance of Discord
 const client = new Discord.Client();
 
-// prefix
+// Prefix
 const prefix = 'd.';
 
-// create collection of commands
+// Create collection of commands
 client.commands = new Discord.Collection();
 
-// check for correct filetype (JavaScript) and require command files when running given command
+// Check for correct filetype (JavaScript) and require command files when running given command
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -25,14 +25,14 @@ for(const file of commandFiles) {
 }
 
 
-// listen for launch and announce
+// Announce on launch
 client.once('ready', () => {
     console.log('d.srupt is online!');
     client.user.setActivity('over you <3', { type: 'WATCHING' }).catch(console.error);
 });
 
 
-// check to make sure a message starts with the d! prefix, and that it's not sent by a bot
+// Check to make sure a message starts with the d! prefix, and that it's not sent by a bot
 client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
