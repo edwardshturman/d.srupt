@@ -80,6 +80,10 @@ client.on('message', async message => {
         client.commands.get('clubs').execute(message, args);
     }
 
+    else if (command === 'list') {
+        client.commands.get('list').execute(message, args);
+    }
+
 // ****************************** MUSIC ******************************
 
     else if (command === 'play') {
