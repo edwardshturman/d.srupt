@@ -3,7 +3,7 @@ module.exports = {
     description: "Fetches d.craft ranks.",
     execute(message, args) {
         const Discord = require('discord.js');
-        const exampleEmbed = new Discord.MessageEmbed()
+        const ranksEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setTitle('d.craft ranks')
             .setURL('https://community.dcraft.net/support')
@@ -22,6 +22,6 @@ module.exports = {
             //.setImage('https://dcraft.net/wp-content/uploads/2020/05/2020-01-16_19.10.07.png')
             //.setTimestamp()
             .setFooter('For more information, click the d.craft ranks title above!', 'https://dcraft.net/wp-content/uploads/2020/03/server-icon-dark-outline-1.png');
-        message.channel.send(exampleEmbed);
+        message.channel.send(ranksEmbed);
     }
 };

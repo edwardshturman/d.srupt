@@ -76,6 +76,10 @@ client.on('message', async message => {
         client.commands.get('help').execute(message, args);
     }
 
+    else if (command === 'clubs') {
+        client.commands.get('clubs').execute(message, args);
+    }
+
 // ****************************** MUSIC ******************************
 
     else if (command === 'play') {
