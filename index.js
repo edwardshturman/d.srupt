@@ -284,5 +284,12 @@ function play(guild, song) {
 
 };
 
+
+
+// ****************************** d.games directory ******************************
+
+// Fetch d.games list embed in #games-directory channel
+
+
 // Login to the bot
 client.login(process.env.TOKEN);
