@@ -34,7 +34,7 @@ client.once('ready', () => {
 
 // Check to make sure a message starts with the d! prefix, and that it's not sent by a bot
 client.on('message', async message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot || !message.author.id === '373272898368176129') return;
 
     // for music
     const serverQueue = queue.get(message.guild.id);
