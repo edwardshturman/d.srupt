@@ -12,7 +12,8 @@
     "url": "git+https://github.com/edwardshturman/d.srupt.git"
   },
   "author": "d.craft team",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "bugs": {
     "url": "https://github.com/edwardshturman/d.srupt/issues"
   },
