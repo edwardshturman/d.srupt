@@ -1,23 +1,21 @@
 {
   "name": "d.srupt",
+  "author": "d.craft team",
+  "bugs": "https://github.com/edwardshturman/d.srupt/issues",
+  "homepage": "https://github.com/edwardshturman/d.srupt",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "description": "The d.srupt Discord bot.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edwardshturman/d.srupt.git"
+  },
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edwardshturman/d.srupt.git"
-  },
-  "author": "d.craft team",
-  "license": "UNLICENSED",
-  "private": true,
-  "bugs": {
-    "url": "https://github.com/edwardshturman/d.srupt/issues"
-  },
-  "homepage": "https://github.com/edwardshturman/d.srupt",
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
