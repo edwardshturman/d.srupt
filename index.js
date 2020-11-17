@@ -34,7 +34,7 @@ client.once('ready', () => {
 
 // Check to make sure a message starts with the d! prefix, and that it's not sent by a bot
 client.on('message', async message => {
-    if (!message.content.startsWith(prefix) || message.author.bot || message.author.id !== '373272898368176129') return;
+    if (!message.content.startsWith(prefix) || message.author.bot || message.author.id !== '373272898368176129') return; // Note: added check, return if not sent by me -Edward
 
     // for music
     const serverQueue = queue.get(message.guild.id);
@@ -49,8 +49,10 @@ client.on('message', async message => {
 
     if (command === 'ping') {
         client.commands.get('ping').execute(message, args);
+
     } else if (command === 'yt') {
         client.commands.get('yt').execute(message, args);
+
     } else if (command === 'verify') {
         client.commands.get('verify').execute(message, args);
     }
@@ -176,7 +178,7 @@ client.on('message', async message => {
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
         message.channel.send(':musical_note: `>>` Music stopped!');
-        return undefined
+        return undefined;
     }
 
     else if (command === 'skip') {
@@ -283,12 +285,6 @@ function play(guild, song) {
     serverQueue.textChannel.send(nowPlayingEmbed);
 
 };
-
-
-
-// ****************************** d.games directory ******************************
-
-// Fetch d.games list embed in #games-directory channel
 
 
 // Login to the bot
