@@ -1,7 +1,7 @@
 module.exports = {
     name: 'play',
-    description: "The play command.",
-    execute(message, args) {
+    description: 'The play command.',
+    execute (message, args) {
         /* **************************************************
     execute(message, args) {
         const ytdl = require('ytdl-core');

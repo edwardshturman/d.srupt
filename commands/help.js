@@ -1,12 +1,12 @@
 module.exports = {
     name: 'help',
-    description: "Displays available commands.",
-    execute(message, args) {
+    description: 'Displays available commands.',
+    execute (message, args) {
         const Discord = require('discord.js');
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setTitle('d.srupt help')
-            //.setURL('https://community.dcraft.net/bots')
+            // .setURL('https://community.dcraft.net/bots')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/09/d.srupt-v3.png')
             .addField('d.ping', 'does what you think it does', false)
             .addField('d.yt', 'sends a link to the glorious d.craft YouTube', false)
