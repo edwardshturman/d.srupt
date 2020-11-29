@@ -13,6 +13,10 @@ module.exports = {
             .addField(':art: Design', 'stuff also goes here', true)
             .addField(':gear: Productivity', 'guess what, stuff goes here too', true)
             .setFooter('React to opt-in or opt-out!', 'https://dcraft.net/wp-content/uploads/2020/09/d-scord-draft-copy.png');
-        message.channel.send(interestGroupsEmbed);
+        message.channel.send(interestGroupsEmbed).then(interestGroupsEmbed => {
+            interestGroupsEmbed.react('💻')
+                .then(interestGroupsEmbed.react('🎨'))
+                .then(interestGroupsEmbed.react('⚙️'));
+        });
     }
 };
