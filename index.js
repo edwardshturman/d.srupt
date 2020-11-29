@@ -72,6 +72,8 @@ client.on('message', async message => {
         client.commands.get('help').execute(message, args);
     } else if (command === 'clubs') {
         client.commands.get('clubs').execute(message, args);
+    } else if (command === 'interests') {
+        client.commands.get('interests').execute(message, args);
     } else if (command === 'list') {
         client.commands.get('list').execute(message, args);
     }
