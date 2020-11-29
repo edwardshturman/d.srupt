@@ -291,7 +291,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
         }
     }
 
-    if (message.id === '782479962996473877') {
+    if (message.id === '782502582068445194') {
         if (emoji.name === '💻') {
             message.guild.members.fetch(user.id).then(member => {
                 member.roles.remove('782480483228450827');
