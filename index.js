@@ -234,7 +234,7 @@ client.on('message', async message => {
 
 // Fetch interestGroupsEmbed in #interests channel
 client.on('ready', () => {
-    client.channels.cache.get('781416823367008266').messages.fetch('782479962996473877');
+    client.channels.cache.get('781416823367008266').messages.fetch('782502582068445194');
 });
 
 // Listen for reactions to the interestGroupsEmbed message and give roles upon reaction
@@ -252,7 +252,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         }
     }
 
-    if (message.id === '782479962996473877') {
+    if (message.id === '782502582068445194') {
         if (emoji.name === '💻') {
             message.guild.members.fetch(user.id).then(member => {
                 member.roles.add('782480483228450827');
