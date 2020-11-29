@@ -8,7 +8,7 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube('AIzaSyA_hyjvOfEU9u5PvhO1rUHF7d-PQdAkG5A');
 
 // Launch instance of Discord
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ['MESSAGE', 'GUILD_MEMBER', 'REACTION', 'USER']});
 
 // Prefix
 const prefix = 'd.';
@@ -238,34 +238,50 @@ client.on('ready', () => {
 });
 
 // Listen for reactions to the interestGroupsEmbed message and give roles upon reaction
-client.on('messageReactionAdd', (reaction, user) => {
-    let message = reaction.message, emoji = reaction.emoji;
+client.on('messageReactionAdd', async (reaction, user) => {
+    let message = reaction.message;
+    let emoji = reaction.emoji;
+    if (reaction.partial) {
+        try {
+            await reaction.fetch();
+        } catch (error) {
+            console.log('Something went wrong when fetching the message: ', error);
+            return;
+        }
+    }
 
-        if (message.id === '782479962996473877') {
-            if (emoji.name === '💻') {
+    console.log('reaction is a go');
 
+    if (message.id === '782479962996473877') {
 
-                message.guild.members.fetch(user.id).then(member => {
-                    member.roles.add('782480483228450827');
+        if (emoji.name === '💻') {
 
-                    console.log('Confirming [Interest: Dev] role given.');
+            console.log('message check');
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('782480483228450827');
+                //reaction.member.roles.add('782480483228450827');
 
-                });
-            } else if (emoji.name === '🎨') {
-                message.guild.members.fetch(user.id).then(member => {
-                    member.roles.add('782480615454539777');
+                console.log('Confirming [Interest: Dev] role given.');
+            });
+        } else if (emoji.name === '🎨') {
 
-                    console.log('Confirming [Interest: Design] role given.');
-                })
-            } else if (emoji.name === '⚙️') {
-                message.guild.members.fetch(user.id).then(member => {
-                    member.roles.add('782480538975207424');
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('782480615454539777');
 
-                    console.log('Confirming [Interest: Productivity] role given.');
-                })
-            }
-                }
+                console.log('Confirming [Interest: Design] role given.');
+            });
 
+        } else if (emoji.name === '⚙️') {
+
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('782480538975207424');
+
+                console.log('Confirming [Interest: Productivity] role given.');
+            });
+
+        }
+
+    }
 });
 
 function play (guild, song) {
