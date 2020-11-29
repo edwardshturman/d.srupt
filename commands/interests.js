@@ -16,7 +16,7 @@ module.exports = {
         message.channel.send(interestGroupsEmbed).then(interestGroupsEmbed => {
             interestGroupsEmbed.react('💻')
                 .then(interestGroupsEmbed.react('🎨'))
-                .then(interestGroupsEmbed.react('⚙️'));
+                .then(interestGroupsEmbed.react('🖊️'));
         });
     }
 };

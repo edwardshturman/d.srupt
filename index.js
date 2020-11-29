@@ -265,7 +265,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
                 console.log('Confirming [Interest: Design] role given.');
             });
 
-        } else if (emoji.name === '⚙️') {
+        } else if (emoji.name === '🖊️') {
             message.guild.members.fetch(user.id).then(member => {
                 member.roles.add('782480538975207424');
 
