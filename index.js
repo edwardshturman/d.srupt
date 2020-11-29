@@ -234,63 +234,38 @@ client.on('message', async message => {
 
 // Fetch interestGroupsEmbed in #interests channel
 client.on('ready', () => {
-    client.channels.cache.get('781416823367008266').messages.fetch('782432837093425163');
+    client.channels.cache.get('781416823367008266').messages.fetch('782479962996473877');
 });
 
-// Listen for reactions to the d.verify embed message and give student role on confirmation
+// Listen for reactions to the interestGroupsEmbed message and give roles upon reaction
 client.on('messageReactionAdd', (reaction, user) => {
     let message = reaction.message, emoji = reaction.emoji;
 
-    if (emoji.name === '✅') {
-        if (message.id === '752336134536822895') {
-            User.findOne({discordId: user.id}).then((currentUser) => {
-                if (currentUser) {
-                    // User linked with d.verify, give [Student] role
-                    console.log('User is linked with d.verify: ', currentUser);
-                    console.log('Giving [Student] role....');
+        if (message.id === '782479962996473877') {
+            if (emoji.name === '💻') {
 
-                    message.guild.members.fetch(user.id).then(member => {
-                        member.roles.add('678114941789798420');
 
-                        console.log('Confirming [Student] role given.');
+                message.guild.members.fetch(user.id).then(member => {
+                    member.roles.add('782480483228450827');
 
-                        // Check for graduating class and give role accordingly
-                        if (currentUser.email.includes("20")) {
-                            member.roles.add('714983619281813505');
-                            console.log('Additionally gave [2020] role.');
-                        }
+                    console.log('Confirming [Interest: Dev] role given.');
 
-                        if (currentUser.email.includes("21")) {
-                            member.roles.add('725572115792920657');
-                            console.log('Additionally gave [2021] role.');
-                        }
+                });
+            } else if (emoji.name === '🎨') {
+                message.guild.members.fetch(user.id).then(member => {
+                    member.roles.add('782480615454539777');
 
-                        if (currentUser.email.includes("22")) {
-                            member.roles.add('725573292655902760');
-                            console.log('Additionally gave [2022] role.');
-                        }
+                    console.log('Confirming [Interest: Design] role given.');
+                })
+            } else if (emoji.name === '⚙️') {
+                message.guild.members.fetch(user.id).then(member => {
+                    member.roles.add('782480538975207424');
 
-                        if (currentUser.email.includes("23")) {
-                            member.roles.add('725573367683612747');
-                            console.log('Additionally gave [2023] role.');
-                        }
-
-                        if (currentUser.email.includes("24")) {
-                            member.roles.add('738495147465244804');
-                            console.log('Additionally gave [2024] role.');
-                        }
-
-                    });
-
-                } else {
-                    // User is not linked with d.verify
-                    console.log('User is not linked with d.verify!');
+                    console.log('Confirming [Interest: Productivity] role given.');
+                })
+            }
                 }
-            });
-            // Remove the user's reaction
-            message.reactions.resolve("✅").users.remove(user.id);
-        }
-    }
+
 });
 
 function play (guild, song) {
