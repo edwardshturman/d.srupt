@@ -3,7 +3,7 @@ module.exports = {
     description: 'Sends list of interest groups with reaction roles.',
     execute (message, args) {
         const Discord = require('discord.js');
-        message.channel.send('<:dlineleft:778112794120945724><:dlinecenter:778112794117406740><:dlineright:778112793882525717> <:dscord:778113952860209173> ***INTEREST GROUPS*** <:dscord:778113952860209173> <:dlineleft:778112794120945724><:dlinecenter:778112794117406740><:dlineright:778112793882525717>');
+        message.channel.send('<:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110> <:dscord:777453385443573771> ***INTEREST GROUPS*** <:dscord:777453385443573771> <:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110>');
         const interestGroupsEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setTitle('d.tech Discord interest groups')
