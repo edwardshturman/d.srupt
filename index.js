@@ -276,6 +276,45 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
 });
 
+// Listen for reaction removals on the interestGroupsEmbed message and take roles upon removal
+client.on('messageReactionRemove', async (reaction, user) => {
+
+    const message = reaction.message;
+    const emoji = reaction.emoji;
+
+    if (reaction.partial) {
+        try {
+            await reaction.fetch();
+        } catch (error) {
+            console.log('Something went wrong when fetching the message: ', error);
+            return;
+        }
+    }
+
+    if (message.id === '782479962996473877') {
+        if (emoji.name === '💻') {
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.remove('782480483228450827');
+                console.log('Confirming [Interest: Dev] role removed.');
+            });
+
+        } else if (emoji.name === '🎨') {
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.remove('782480615454539777');
+                console.log('Confirming [Interest: Design] role removed.');
+            });
+
+        } else if (emoji.name === '⚙️') {
+            message.guild.members.fetch(user.id).then(member => {
+                member.roles.remove('782480538975207424');
+
+                console.log('Confirming [Interest: Productivity] role removed.');
+            });
+
+        }
+    }
+});
+
 function play (guild, song) {
     const serverQueue = queue.get(guild.id);
 
