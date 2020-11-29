@@ -304,7 +304,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
                 console.log('Confirming [Interest: Design] role removed.');
             });
 
-        } else if (emoji.name === '⚙️') {
+        } else if (emoji.name === '🖊️') {
             message.guild.members.fetch(user.id).then(member => {
                 member.roles.remove('782480538975207424');
 
