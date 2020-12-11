@@ -10,8 +10,8 @@ module.exports = {
             // .setURL('https://community.dcraft.net/interest-groups')
             .setDescription('Interest groups: like a club, but more open! A quicker, more dynamic way to connect and get involved in something you\'re interested in.')
             .addField(':computer: Development', 'The programming world can be toxic to newcomers, so whether you\'re just getting into it or well on your way, come join and see what the community is up to!', true)
-            // .addField(':art: Design', 'stuff also goes here', true)
-            .addField(':gear: Productivity', 'Want to learn more and discuss apps and tools like Todoist, Notion, etc.? This is the place for you!', true)
+            .addField(':art: Design', 'Into product design, graphic design, 3D desi—you get the point...come join!', true)
+            .addField(':pen_ballpoint: Productivity', 'Want to learn more and discuss apps and tools like Todoist, Notion, etc.? This is the place for you!', true)
             .setFooter('React to opt-in or opt-out!', 'https://dcraft.net/wp-content/uploads/2020/09/d-scord-draft-copy.png');
         message.channel.send(interestGroupsEmbed).then(interestGroupsEmbed => {
             interestGroupsEmbed.react('💻')
