@@ -10,11 +10,11 @@ module.exports = {
             // .setURL('https://community.dcraft.net/bots')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/09/d.srupt-v3.png')
             .addField('Hey there!', 'As you may have noticed, we\'ve got a lot of bots here, all with their own commands and help pages:', false)
-            .addField('d.srupt', 'The "general" bot for the server, helps keep things clean', true)
-            .addField('d.scord', 'd.verify on steroids. jk, it\'s just the d.verify bot. Helps keep things safe', true)
-            .addField('d.j', 'Low-level "music" bot', true)
-            .addField('d.bot', 'd.craft\'s server-to-server bot, which syncs your roles here to ranks there', true)
-            .addField('If you\'re looking for any of these, enter the bot name, followed by a "?".\nExample: d.j?', false);
+            .addField('d.srupt', 'The "general" bot for the server, helps keep things clean', false)
+            .addField('d.scord', 'd.verify on steroids. jk, it\'s just the d.verify bot. Helps keep things safe', false)
+            .addField('d.j', 'Low-level "music" bot', false)
+            .addField('d.bot', 'd.craft\'s server-to-server bot, which syncs your roles here to ranks there', false)
+            .setFooter('If you\'re looking for any of these, enter the bot name, followed by a "?".\nExample: d.j?');
             // .addField('d.ping', 'does what you think it does', false)
             // .addField('d.yt', 'sends a link to the glorious d.craft YouTube', false)
             // .addField('d.verify', 'super high level tactic, remember it, yeah?', false) // testing, use role check from command and remove in production
