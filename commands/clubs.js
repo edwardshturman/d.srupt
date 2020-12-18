@@ -7,6 +7,7 @@ module.exports = {
         const riotEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setTitle('Riot Club')
+            .setURL('https://riot.dcraft.net')
             .setDescription('Into League of Legends and/or Valorant? We\'ve got ya covered. Map play design thinking—whatever that means—comp strategy, and of course, HSEL (High School Esports League). Join the fun and sign up for Winter tryouts today!')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/09/riot-club-background-from-valorant-site-circle.png');
         message.channel.send(riotEmbed);
@@ -16,6 +17,13 @@ module.exports = {
             .setDescription('Unity, Unreal, GameMaker Studio, we\'ve got it all. Whether you\'re a beginner looking to learn the ropes of game design, or a pro looking to compete with senio—I mean, help out the team, you\'ll do great. Stay tuned for signup info!')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/11/GandAlogo-circular.png');
         message.channel.send(gAndAEmbed);
+        const hardwareClubEmbed = new Discord.MessageEmbed()
+            .setColor('#ff3300')
+            .setTitle('Hardware Club')
+            .setURL('https://discord.gg/ncQAn43JXG')
+            .setDescription('If you like PCs, Hardware Club is for you. We welcome any sort of technology-related discussion. Or, if you\'re interested in learning more about the inner workings of your PC and don\'t understand any of the jargon, we\'re here to help!')
+            .setThumbnail("https://cdn.discordapp.com/icons/764654181012733953/d3d3c4d8f123ca750db6c4bbb3212b9e.webp?size=128");
+        message.channel.send(hardwareClubEmbed);
         /* const clubsEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setTitle('d.games clubs')
