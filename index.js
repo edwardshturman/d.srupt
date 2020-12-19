@@ -49,6 +49,8 @@ client.on('message', async message => {
         client.commands.get('interests').execute(message, args);
     } else if (command === 'list') {
         client.commands.get('list').execute(message, args);
+    } else if (command === 'scribe') {
+        client.commands.get('scribe').execute(message, args);
     }
 
 }).on('error', () => {
