@@ -51,6 +51,8 @@ client.on('message', async message => {
         client.commands.get('list').execute(message, args);
     } else if (command === 'scribe') {
         client.commands.get('scribe').execute(message, args);
+    } else if (command === 'craft-server-info') {
+        client.commands.get('info').execute(message, args);
     }
 
 }).on('error', () => {
