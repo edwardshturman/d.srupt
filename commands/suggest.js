@@ -5,6 +5,7 @@ module.exports = {
         const Discord = require('discord.js');
         const channel = message.guild.channels.cache.get('610552731555594240');
         if (!channel) return message.channel.send('Suggestions channel does not exist!');
+        if (!args) return message.delete();
 
         let messageArgs = args.join(' ');
         const embed = new Discord.MessageEmbed()
