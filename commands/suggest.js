@@ -8,7 +8,7 @@ module.exports = {
         if (!args) return message.delete();
 
         let messageArgs = args.join(' ');
-        if (args !== '') {
+        if (args[0] !== '') {
             const embed = new Discord.MessageEmbed()
                 .setColor('#ff3300')
                 .setAuthor(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
