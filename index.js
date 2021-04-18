@@ -88,21 +88,23 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (message.id === '787039995105378326') {
         if (emoji.name === '💻') {
             message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('833162956829229096');
                 member.roles.add('782480483228450827');
-                console.log('Confirming [Interest: Dev] role given.');
+                console.log('Confirming Development interest role given.');
             });
 
         } else if (emoji.name === '🎨') {
             message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('833162956829229096');
                 member.roles.add('782480615454539777');
-                console.log('Confirming [Interest: Design] role given.');
+                console.log('Confirming Design interest role given.');
             });
 
         } else if (emoji.name === '🖊️') {
             message.guild.members.fetch(user.id).then(member => {
+                member.roles.add('833162956829229096');
                 member.roles.add('782480538975207424');
-
-                console.log('Confirming [Interest: Productivity] role given.');
+                console.log('Confirming Productivity interest role given.');
             });
 
         }
