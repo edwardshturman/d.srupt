@@ -1,11 +1,11 @@
 {
   "name": "d.srupt",
-  "author": "d.craft team",
+  "author": "Edward Shturman",
   "bugs": "https://github.com/edwardshturman/d.srupt/issues",
   "homepage": "https://github.com/edwardshturman/d.srupt",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "description": "The d.srupt Discord bot.",
+  "description": "General bot for d.street Discord @ Design Tech High School",
   "repository": {
     "type": "git",
     "url": "https://github.com/edwardshturman/d.srupt.git"
