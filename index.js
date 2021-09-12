@@ -37,8 +37,6 @@ client.on('message', async message => {
         client.commands.get('ping').execute(message, args);
     } else if (command === 'yt') {
         client.commands.get('yt').execute(message, args);
-    } else if (command === 'verify') {
-        client.commands.get('verify').execute(message, args);
     } else if (command === 'ranks') {
         client.commands.get('ranks').execute(message, args);
     } else if (command === 'help') {
@@ -47,8 +45,6 @@ client.on('message', async message => {
         client.commands.get('clubs').execute(message, args);
     } else if (command === 'interests') {
         client.commands.get('interests').execute(message, args);
-    } else if (command === 'list') {
-        client.commands.get('list').execute(message, args);
     } else if (command === 'scribe') {
         client.commands.get('scribe').execute(message, args);
     } else if (command === 'craft-server-info') {
