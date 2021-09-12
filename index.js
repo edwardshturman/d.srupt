@@ -29,7 +29,7 @@ client.once('ready', () => {
 client.on('message', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot || message.author.id !== '373272898368176129') return; // Note: added check, return if not sent by me -Edward
 
-    // identify arguments by a space in the command and properly format
+    // Identify arguments by a space in the command and properly format
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
@@ -47,8 +47,8 @@ client.on('message', async message => {
         client.commands.get('interests').execute(message, args);
     } else if (command === 'scribe') {
         client.commands.get('scribe').execute(message, args);
-    } else if (command === 'craft-server-info') {
-        client.commands.get('info').execute(message, args);
+    // } else if (command === 'craft-server-info') {
+    //     client.commands.get('info').execute(message, args);
     } else if (command === 'suggest') {
         client.commands.get('suggest').execute(message, args);
     }

@@ -1,15 +1,21 @@
 module.exports = {
     name: 'scribe',
-    description: 'Server updates command',
+    description: 'Server updates command', // TODO: Automate server updates
     execute (message, args) {
         const Discord = require('discord.js');
         if (args[0] === '2020.12.18') {
+
+            // Divider
             message.channel.send('<:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110> <:dscord:777453385443573771> ***Server updates — December 18, 2020*** <:dscord:777453385443573771> <:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110>');
+
+            // December 18, 2020 update info: clubs
             const dec182020ClubsEmbed = new Discord.MessageEmbed()
                 .setColor('#ff3300')
                 .setTitle('NEW: Clubs channel')
                 .setDescription('It\'s a small list at the moment, but we now have a place for d.games-supported clubs! Check em out and sign up :)')
                 .setThumbnail('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/house-with-garden_1f3e1.png');
+
+            // December 18, 2020 updaate info: interests
             const dec182020InterestsEmbed = new Discord.MessageEmbed()
                 .setColor('#ff3300')
                 .setTitle('NEW: Interests channel')

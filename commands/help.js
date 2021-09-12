@@ -1,8 +1,9 @@
 module.exports = {
     name: 'help',
-    description: 'Displays available commands.',
+    description: 'Displays available commands', // TODO: Redo help page
     execute (message, args) {
         const Discord = require('discord.js');
+
         const helpEmbedOne = new Discord.MessageEmbed()
             .setColor('#ff3300')
             // .setTitle('d.srupt help')
@@ -18,27 +19,30 @@ module.exports = {
             // .addField('d.clubs', 'displays list of d.tech gaming clubs d.games supports', false) // mod-only, remove in production
             // .addField('d.list', 'displays list of d.games servers', false) // mod-only, remove in production
             // .addField('d.help', 'listed here to make bot look more feature-filled', false);
-
         message.channel.send(helpEmbedOne);
 
+        // d.verify bot info
         const helpEmbedTwo = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/09/d-scord-draft-copy.png')
             .addField('d.scord', 'd.verify on steroids. jk, it\'s just the d.verify bot. Helps keep things safe', false)
         message.channel.send(helpEmbedTwo);
 
+        // d.j bot info
         const helpEmbedThree = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/12/d.j-logo.png')
             .addField('d.j', 'Low-level "music" bot', false);
         message.channel.send(helpEmbedThree);
 
+        // d.craft server bot info
         const helpEmbedFour = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/12/server-icon-darker.png')
             .addField('d.bot', 'd.craft\'s server-to-server bot, which syncs your roles here to ranks there', false);
         message.channel.send(helpEmbedFour);
 
+        // d.srupt bot info
         const helpEmbedFive = new Discord.MessageEmbed()
             .setColor('#ff3300')
             .setThumbnail('https://dcraft.net/wp-content/uploads/2020/09/d.srupt-v3.png')

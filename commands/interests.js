@@ -1,12 +1,12 @@
 module.exports = {
     name: 'interests',
-    description: 'Sends list of interest groups with reaction roles.',
+    description: 'Sends list of interest groups with reaction roles',
     execute (message, args) {
         const Discord = require('discord.js');
         message.channel.send('<:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110> <:dscord:777453385443573771> ***INTEREST GROUPS*** <:dscord:777453385443573771> <:dlineleft:777449590718070795><:dlinecenter:777449590974185474><:dlineright:777449591179182110>');
         const interestGroupsEmbed = new Discord.MessageEmbed()
             .setColor('#ff3300')
-            .setTitle('d.tech Discord interest groups')
+            .setTitle('d.street Discord interest groups')
             // .setURL('https://community.dcraft.net/interest-groups')
             .setDescription('Interest groups: like a club, but more open! A quicker, more dynamic way to connect and get involved in something you\'re interested in.')
             .addField(':computer: Development', 'The programming world can be toxic to newcomers, so whether you\'re just getting into it or well on your way, come join and see what the community is up to!', true)
