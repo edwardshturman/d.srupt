@@ -1,5 +1,6 @@
 // Dependencies
-const { Discord, Client, Intents } = require('discord.js');
+const { Client, Intents } = require('discord.js');
+const Discord = require('discord.js');
 require('dotenv').config();
 const fs = require('fs');
 
@@ -25,7 +26,7 @@ for (const file of commandFiles) {
 // Announce on launch
 client.once('ready', () => {
     console.log('d.srupt is online!');
-    client.user.setActivity('over you <3', { type: 'WATCHING' }).catch(console.error);
+    client.user.setActivity('over you <3', { type: 'WATCHING' });
 });
 
 // Check to make sure a message starts with the d! prefix, and that it's not sent by a bot
