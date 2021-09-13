@@ -4,7 +4,10 @@ require('dotenv').config();
 const fs = require('fs');
 
 // Launch instance of Discord
-const client = new Discord.Client({ partials: ['MESSAGE', 'GUILD_MEMBER', 'REACTION', 'USER'] });
+const client = new Discord.Client({
+    partials: ['MESSAGE', 'GUILD_MEMBER', 'REACTION', 'USER'],
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
+});
 
 // Prefix
 const prefix = 'd.';
