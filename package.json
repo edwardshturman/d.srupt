@@ -45,5 +45,8 @@
   "devDependencies": {
     "mocha": "^9.1.1",
     "standardx": "^7.0.0"
+  },
+  "engines": {
+    "node": "16.9.1"
   }
 }
