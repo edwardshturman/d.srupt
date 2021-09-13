@@ -1,11 +1,10 @@
 // Dependencies
-const Discord = require('discord.js');
-const Intents = require('discord.js');
+const { Discord, Client, Intents } = require('discord.js');
 require('dotenv').config();
 const fs = require('fs');
 
 // Launch instance of Discord
-const client = new Discord.Client({
+const client = new Client({
     partials: ['MESSAGE', 'GUILD_MEMBER', 'REACTION', 'USER'],
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
 });
@@ -30,7 +29,7 @@ client.once('ready', () => {
 });
 
 // Check to make sure a message starts with the d! prefix, and that it's not sent by a bot
-client.on('message', async message => {
+client.on('messageCreate', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot || message.author.id !== '373272898368176129') return; // Note: added check, return if not sent by me -Edward
 
     // Identify arguments by a space in the command and properly format
