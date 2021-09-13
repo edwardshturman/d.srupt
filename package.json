@@ -34,16 +34,16 @@
     ]
   },
   "dependencies": {
-    "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
-    "ffmpeg-static": "^4.2.6",
-    "opusscript": "0.0.7",
-    "request": "2.88.2",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "opusscript": "^0.0.8",
+    "request": "^2.88.2",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^3.2.1"
+    "ytdl-core": "^4.9.1"
   },
   "devDependencies": {
-    "mocha": "^8.2.1",
+    "mocha": "^9.1.1",
     "standardx": "^7.0.0"
   }
 }
