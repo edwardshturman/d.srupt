@@ -18,7 +18,7 @@ module.exports = {
                 .setTitle('New suggestion:')
                 .setDescription(args.slice(1).join(' '));
 
-            mcSuggestionsChannel.send(embed)
+            mcSuggestionsChannel.send({ embeds: [embed] })
                 .then((msg) => {
                     msg.react('👍');
                     msg.react('👎');
@@ -36,7 +36,7 @@ module.exports = {
                 .setTitle('New suggestion:')
                 .setDescription(messageArgs);
 
-            serverSuggestionsChannel.send(embed)
+            serverSuggestionsChannel.send({ embeds: [embed] })
                 .then((msg) => {
                     msg.react('👍');
                     msg.react('👎');
